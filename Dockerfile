@@ -21,6 +21,9 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 # install pdo_mysql extension. this command is provided by php image
 RUN docker-php-ext-install pdo_mysql
 
+# enable mode rewrite of apache
+RUN a2enmod rewrite
+
 # tell docker that this image expose port 80
 EXPOSE 80
 
