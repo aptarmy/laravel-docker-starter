@@ -1,0 +1,36 @@
+version: "3"
+services:
+    webapp:
+      image: laravel-app
+      ports:
+        - 8080:80
+      volumes:
+        - .:/var/www/html
+      depends_on:
+        - mysql
+      environment:
+        APACHE_DOCUMENT_ROOT: /var/www/html/public
+        APACHE_RUN_USER: www-data
+        APACHE_RUN_GROUP: www-data
+    mysql:
+      image: mysql:5.7.9
+      restart: always
+      volumes:
+        - ./mysql-data:/var/lib/mysql
+      environment:
+        MYSQL_DATABASE: laravel
+        MYSQL_USER: admin
+        MYSQL_PASSWORD: password
+        MYSQL_ROOT_PASSWORD: password
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      restart: always
+      ports:
+        - 8000:80
+      environment:
+        PMA_ARBITRARY: 1
+        PMA_HOST: mysql
+        PMA_PORT: 3306
+        PMA_USER: root
+        PMA_PASSWORD: password
+
