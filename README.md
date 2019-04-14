@@ -1,5 +1,5 @@
 # Laravel Docker Starter
-The old way to develop a Laravel app is kind of intermediating, where you need to install VirtualBox and Vagrant, and then import Homestead. That way also consumes so much computer resources and is considered to be heavy and slow. Now, Docker is the new standard which is much more lightweight, easy-to-work-with, and faster.
+The old way of developing a Laravel app is kind of intermediating, where you need to install VirtualBox and Vagrant, and then import Homestead. Not only that it consumes so much computer resources, but it's also considered to be heavy and slow. Now, Docker is the new standard which is much more lightweight, easy-to-work-with, and faster.
 
 ## Get Started
 There are easy steps that let you laverage the power of Docker
