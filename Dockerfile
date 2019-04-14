@@ -8,6 +8,10 @@ COPY . /var/www/html
 # this trick avoid all file permission problems
 RUN usermod -u 1000 www-data
 RUN groupmod -g 1000 www-data
+# the default shell path of www-data user is '/usr/sbin/nologin' which means
+# we are not allowed to use 'su - www-data' command in docker container
+# by setting shell command to '/bin/bash', we are now allowed to do so.
+RUN usermod -s /bin/bash www-data
 
 # edit apache config to let it serve http request from $APACHE_DOCUMENT_ROOT which is set to '/var/www/html/public'
 # in 'docker-compose.yml' file
